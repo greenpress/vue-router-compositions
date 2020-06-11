@@ -6,7 +6,7 @@
   "browser": "dist/index.js",
   "typings": "dist/types/index.d.ts",
   "scripts": {
-    "prepublish": "npm run test && npm run build",
+    "prepublish": "npm run build",
     "build": "npx tsc --build tsconfig.json",
     "test": "exit"
   },
