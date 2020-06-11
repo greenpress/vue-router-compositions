@@ -1,6 +1,6 @@
 # vue-router-compositions
 
-[![npm version](https://badge.fury.io/js/vue-router-composition.svg)](https://badge.fury.io/js/vuex-composition-helpers)
+[![npm version](https://badge.fury.io/js/vue-router-compositions.svg)](https://badge.fury.io/js/vuex-composition-helpers)
 
 A util package for Vue-Router and Vue Composition API.
 
