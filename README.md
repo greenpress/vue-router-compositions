@@ -16,21 +16,18 @@ $ npm install vue-router-compositions
 reactive 
 
 ```js
-import { useRouteParam, useActions } from 'vue-router-compositions';
+import { useRouteParam } from 'vue-router-compositions';
 
 export default {
-	props: {
-		articleId: String
-	},
-	setup(props) {
-		const { fetch } = useActions(['fetch']);
-		const { article, comments } = useState(['article', 'comments']);
-		fetch(props.articleId); // dispatch the "fetch" action
-
+	setup() {
+		const { articleId } = useRouteParam('articleId');
+        // "articleId" is a computed property from current route:
+        doSomethingWithRouteParam(articleId.value);
 		return {
-			// both are computed compositions for to the store
-			article,
-			comments
+			someAction() {
+                // this actions will set up a route change accordingly
+			    articleId.value = 'new-article-ID';
+            }
 		}
 	}
 }

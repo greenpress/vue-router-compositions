@@ -1,6 +1,6 @@
 {
   "name": "vue-router-compositions",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "src/index.ts",
   "browser": "dist/index.js",
