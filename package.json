@@ -1,0 +1,38 @@
+{
+  "name": "vue-router-compositions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "browser": "dist/index.js",
+  "typings": "dist/types/index.d.ts",
+  "scripts": {
+    "prepublish": "npm run test && npm run build",
+    "build": "npx tsc --build tsconfig.json",
+    "test": "exit"
+  },
+  "author": "David Meir-Levy <davidmeirlevy@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "composition-api",
+    "vue-router",
+    "vue-route-params",
+    "vue-router-hooks",
+    "vue-router-compositions"
+  ],
+  "peerDependencies": {
+    "@vue/composition-api": ">= 0.4.0",
+    "vue-router": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "@vue/composition-api": "^0.6.1",
+    "@vue/test-utils": "^1.0.0-beta.33",
+    "jest": "^25.3.0",
+    "ts-jest": "^25.3.1",
+    "typescript": "^3.8.2",
+    "vue": "^2.6.11",
+    "vue-router": "^3.3.2",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
