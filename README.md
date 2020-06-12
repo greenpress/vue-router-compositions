@@ -13,7 +13,8 @@ $ npm install vue-router-compositions
 ### Basic Usage Examples
 
 #### useRouteParam
-reactive 
+Reactive route param.
+Updated from route param value, with a setter that apply route change.
 
 ```js
 import { useRouteParam } from 'vue-router-compositions';
@@ -33,4 +34,30 @@ export default {
 }
 ```
 
+#### useQueryParam
+Reactive query param.
+Updated from route param value, with a setter that apply route change.
+
+
+```js
+import { useQueryParam } from 'vue-router-compositions';
+
+export default {
+	setup() {
+		const { page } = useQueryParam('page', '1');
+		const { sort } = useQueryParam('sort', 'ascending', ['ascending', 'descending']);
+        
+		return {
+			changePage(newPage) {
+                // will trigger a query route change.
+                page.value = newPage;
+            },
+			changeSort(isAscending) {
+                // trying to set a value that not included on the enumOptions will be ignored.
+                sort.value = isAscending ? 'ascending' : 'descending';
+            }
+		}
+	}
+}
+```
 Enjoy!
