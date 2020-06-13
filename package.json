@@ -1,6 +1,6 @@
 {
   "name": "vue-router-compositions",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "src/index.ts",
   "browser": "dist/index.js",
@@ -24,6 +24,14 @@
     "@vue/composition-api": ">= 0.4.0",
     "vue-router": "^3.3.2"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greenpress/vue-router-compositions.git"
+  },
+  "bugs": {
+    "url": "https://github.com/greenpress/vue-router-compositions/issues"
+  },
+  "homepage": "https://github.com/greenpress/vue-router-compositions#readme",
   "devDependencies": {
     "@types/jest": "^25.2.1",
     "@vue/composition-api": "^0.6.1",

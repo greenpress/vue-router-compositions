@@ -38,7 +38,6 @@ export default {
 Reactive query param.
 Updated from route param value, with a setter that apply route change.
 
-
 ```js
 import { useQueryParam } from 'vue-router-compositions';
 
@@ -60,4 +59,32 @@ export default {
 	}
 }
 ```
+
+#### useNavigateItem
+Helper function to create a navigation method for your entities.
+
+Let's say you're using a table of some kind, and you want to subscribe to a row click event.
+In common cases, the "click" event will send the row's entity item as the event payload.
+In case you want to trigger a route change to navigate to this item's screen, you can use this method as the example below:
+
+```js
+import { useNavigateItem } from 'vue-router-compositions';
+
+export default {
+    template: '<el-table :data="rows" @row-click="navigateItem"/>',
+	setup() {
+		const { navigateItem } = useNavigateItem('article', 'articleId', 'rowId');
+        
+		return {
+            rows: [
+                {rowId: '1234', title: 'first article'},
+                {rowId: '2345', title: 'second article'},
+                {rowId: '4567', title: 'third article'},
+            ],
+			navigateItem
+		}
+	}
+}
+```
+
 Enjoy!
