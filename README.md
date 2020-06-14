@@ -87,4 +87,27 @@ export default {
 }
 ```
 
+#### useRouteDispatcher
+Create a reactive dispatcher from a router param
+
+```js
+import { useRouteDispatcher } from 'vue-router-compositions';
+
+const fetchArticle = (articleId) => fetch(`/articles/${articleId}`).then(res => res.json())
+
+export default {
+	setup() {
+		const { result, loading, error, promise, param } = useRouteDispatcher('articleId', fetchArticle);
+       
+		return {
+            // all values are reactive
+            param,
+            result,
+            loading,
+            error,
+            promise
+		};
+	}
+}
+```
 Enjoy!
