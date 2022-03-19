@@ -10,9 +10,15 @@ A util package for Vue-Router and Vue Composition API.
 $ npm install vue-router-compositions
 ```
 
-### Basic Usage Examples
+## Basic Usage Examples
 
-#### useRouteParam
+- [`useRouteParam`](#userouteparam)
+- [`useQueryParam`](#usequeryparam)
+- [`useNavigateItem`](#usenavigateitem)
+- [`useRouteDispatcher`](#useroutedispatcher)
+- [`onBeforeRouteUpdate` and `onBeforeRouteLeave`](#onbeforerouteupdate-and-onbeforerouteleave)
+
+### `useRouteParam`
 
 Reactive route param.
 Updated from route param value, with a setter that apply route change.
@@ -35,7 +41,7 @@ export default {
 };
 ```
 
-#### useQueryParam
+### `useQueryParam`
 
 Reactive query param.
 Updated from route param value, with a setter that apply route change.
@@ -62,7 +68,7 @@ export default {
 };
 ```
 
-#### useNavigateItem
+### `useNavigateItem`
 
 Helper function to create a navigation method for your entities.
 
@@ -90,9 +96,9 @@ export default {
 };
 ```
 
-#### useRouteDispatcher
+### `useRouteDispatcher`
 
-Create a reactive dispatcher from a router param
+Creates a reactive dispatcher from a router param.
 
 ```js
 import { useRouteDispatcher } from "vue-router-compositions";
@@ -113,6 +119,35 @@ export default {
     };
   },
 };
+```
+
+### `onBeforeRouteUpdate` and `onBeforeRouteLeave`
+
+Adds a navigation guard that triggers whenever the component for the current location is about to be left. Similar to `beforeRouteUpdate` and `beforeRouteLeave` but can be used in any component. The guard is removed when the component is unmounted.
+
+```js
+import { onBeforeRouteLeave, onBeforeRouteUpdate } from 'vue-router-compositions'
+import { ref } from 'vue'
+
+export default {
+  setup() {
+    onBeforeRouteLeave((to, from) => {
+      const answer = window.confirm(
+        'Do you really want to leave? you have unsaved changes!'
+      )
+      // cancel the navigation and stay on the same page
+      if (!answer) return false
+    })
+
+    const userData = ref()
+    onBeforeRouteUpdate(async (to, from) => {
+      // only fetch the user if the id changed as maybe only the query or the hash changed
+      if (to.params.id !== from.params.id) {
+        userData.value = await fetchUser(to.params.id)
+      }
+    })
+  }
+}
 ```
 
 Enjoy!
