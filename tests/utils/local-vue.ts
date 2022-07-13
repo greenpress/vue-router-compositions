@@ -1,5 +1,6 @@
-import {createLocalVue} from '@vue/test-utils';
+import { createLocalVue } from '@vue/test-utils';
 import CompositionApi from '@vue/composition-api';
+
 import VueRouter from 'vue-router';
 import Vue from 'vue';
 

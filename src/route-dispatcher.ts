@@ -1,4 +1,4 @@
-import { WritableComputedRef } from '@vue/composition-api/dist/apis/computed';
+import { WritableComputedRef } from '@vue/composition-api';
 import { useRouteParam } from './route-param';
 import { DispatchFunction, useDispatcher } from './dispatcher';
 
