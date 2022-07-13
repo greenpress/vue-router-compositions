@@ -9,10 +9,7 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "isolatedModules": true,
-    "moduleResolution": "node",
-    "types": [
-      "vue-router/types"
-    ]
+    "moduleResolution": "node"
   },
   "include": [
     "src/*.ts",
